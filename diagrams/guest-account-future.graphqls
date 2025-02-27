@@ -1,0 +1,295 @@
+# Directives
+directive @NotBlank(message: String = "graphql.validation.NotBlank.message") on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+
+# Queries
+type Query {
+    retrieveGuestByConsumerId(consumerId: String! @NotBlank): GuestResult
+}
+
+# Mutations
+type Mutation {
+    createGuest(guestInfo: GuestInput!): GuestResult
+    updateGuest(consumerId: String! @NotBlank, guestInfo: GuestInput!): GuestResult
+    deleteGuest(consumerId: String! @NotBlank): GuestResult
+}
+
+# Types
+type Guest {
+    consumerId: String!
+    guestType: String
+    account: Account
+    personalInformation: PersonalInformation
+    contactInformation: ContactInformation
+    emergencyContact: EmergencyContact
+    loyaltyInformation: LoyaltyInformation
+    casinoLoyaltyInformation: CasinoLoyaltyInformation
+    cruisingHistory: CruisingHistory
+    emailOptIns: [EmailOptIn]
+    termsAndConditionsAgreement: TermsAndConditionsAgreement
+    ratings: Ratings
+    postalOptIns: [PostalOptIn]
+    notificationOptIns: [NotificationOptIn]
+    travelDocument: TravelDocument
+}
+
+type Account {
+    accountId: String!
+    uid: String!
+    uidType: String!
+    marketingCountry: String
+    signInInformation: SignInInformation
+    cobrandCardInfo: CobrandCardInfo
+}
+
+type SignInInformation {
+    securityQuestions: [SecurityQuestion]
+}
+
+type SecurityQuestion {
+    question: String!
+    answer: String!
+}
+
+type CobrandCardInfo {
+    coBrandPrimaryAccountNumber: String
+    activeCardHolder: Boolean
+    priorCardCloseDate: String
+}
+
+type PersonalInformation {
+    firstName: String! @NotBlank
+    middleName: String
+    lastName: String! @NotBlank
+    birthdate: String!
+    gender: Gender
+    title: String
+    nationality: String
+    citizenship: String
+    language: String
+}
+
+type Gender {
+    genderId: String!
+    genderType: String!
+}
+
+type ContactInformation {
+    email: String
+    phoneNumber: String
+    mobileNumber: String
+    address: Address
+}
+
+type Address {
+    addressLine1: String
+    addressLine2: String
+    city: String
+    state: String
+    country: String
+    postalCode: String
+}
+
+type EmergencyContact {
+    firstName: String
+    lastName: String
+    phoneNumber: String
+    countryCode: String
+    relationship: String
+}
+
+type LoyaltyInformation {
+    loyaltyNumber: String
+    loyaltyTierCode: String
+    loyaltyTierDescription: String
+    loyaltyLongCode: String
+}
+
+type CasinoLoyaltyInformation {
+    casinoLoyaltyNumber: String
+    casinoLoyaltyTier: String
+}
+
+type CruisingHistory {
+    firstCelebrityCruise: Boolean
+    firstCruiseEver: Boolean
+    firstRoyalCruise: Boolean
+    previousCruiser: Boolean
+}
+
+type EmailOptIn {
+    acceptDateTime: String
+    brand: String
+    category: String
+    countryCode: String
+    flag: String
+    reason: String
+}
+
+type TermsAndConditionsAgreement {
+    acceptDateTime: String
+    version: String
+}
+
+type Ratings {
+    lastRatedOn: String
+    displayRateMyApp: Boolean
+}
+
+type PostalOptIn {
+    acceptDateTime: String
+    flag: String
+    reason: String
+}
+
+type NotificationOptIn {
+    royal: String
+    celebrity: String
+}
+
+type TravelDocument {
+    passportNumber: String
+    passportExpirationDate: String
+    citizenshipCountryCode: String
+}
+
+# Inputs
+input GuestInput {
+    guestType: String
+    account: AccountInput
+    personalInformation: PersonalInformationInput
+    contactInformation: ContactInformationInput
+    emergencyContact: EmergencyContactInput
+    loyaltyInformation: LoyaltyInformationInput
+    casinoLoyaltyInformation: CasinoLoyaltyInformationInput
+    cruisingHistory: CruisingHistoryInput
+    emailOptIns: [EmailOptInInput]
+    termsAndConditionsAgreement: TermsAndConditionsAgreementInput
+    ratings: RatingsInput
+    postalOptIns: [PostalOptInInput]
+    notificationOptIns: [NotificationOptInInput]
+    travelDocument: TravelDocumentInput
+}
+
+input AccountInput {
+    uid: String! @NotBlank
+    uidType: String! @NotBlank
+    marketingCountry: String
+    signInInformation: SignInInformationInput
+    cobrandCardInfo: CobrandCardInfoInput
+}
+
+input SignInInformationInput {
+    securityQuestions: [SecurityQuestionInput]
+}
+
+input SecurityQuestionInput {
+    question: String!
+    answer: String!
+}
+
+input CobrandCardInfoInput {
+    coBrandPrimaryAccountNumber: String
+    activeCardHolder: Boolean
+    priorCardCloseDate: String
+}
+
+input PersonalInformationInput {
+    firstName: String! @NotBlank
+    middleName: String
+    lastName: String! @NotBlank
+    birthdate: String!
+    gender: GenderInput
+    title: String
+    nationality: String
+    citizenship: String
+    language: String
+}
+
+input GenderInput {
+    genderId: String!
+    genderType: String!
+}
+
+input ContactInformationInput {
+    email: String
+    phoneNumber: String
+    mobileNumber: String
+    address: AddressInput
+}
+
+input AddressInput {
+    addressLine1: String
+    addressLine2: String
+    city: String
+    state: String
+    country: String
+    postalCode: String
+}
+
+input EmergencyContactInput {
+    firstName: String
+    lastName: String
+    phoneNumber: String
+    countryCode: String
+    relationship: String
+}
+
+input LoyaltyInformationInput {
+    loyaltyNumber: String
+    loyaltyTierCode: String
+    loyaltyTierDescription: String
+    loyaltyLongCode: String
+}
+
+input CasinoLoyaltyInformationInput {
+    casinoLoyaltyNumber: String
+    casinoLoyaltyTier: String
+}
+
+input CruisingHistoryInput {
+    firstCelebrityCruise: Boolean
+    firstCruiseEver: Boolean
+    firstRoyalCruise: Boolean
+    previousCruiser: Boolean
+}
+
+input EmailOptInInput {
+    acceptDateTime: String
+    brand: String
+    category: String
+    countryCode: String
+    flag: String
+    reason: String
+}
+
+input TermsAndConditionsAgreementInput {
+    acceptDateTime: String
+    version: String
+}
+
+input RatingsInput {
+    lastRatedOn: String
+    displayRateMyApp: Boolean
+}
+
+input PostalOptInInput {
+    acceptDateTime: String
+    flag: String
+    reason: String
+}
+
+input NotificationOptInInput {
+    royal: String
+    celebrity: String
+}
+
+input TravelDocumentInput {
+    passportNumber: String
+    passportExpirationDate: String
+    citizenshipCountryCode: String
+}
+
+# Result Types
+type GuestResult {
+    guest: Guest
+}
