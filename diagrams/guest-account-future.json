@@ -1,0 +1,119 @@
+{
+  "guest": {
+    "consumerId": "67890",
+    "guestType": "Adult",
+    "account": {
+      "accountId": "acc-67890",
+      "uid": "user@example.com",
+      "uidType": "EMAIL",
+      "marketingCountry": "USA",
+      "signInInformation": {
+        "securityQuestions": [
+          {
+            "question": "What is your pet's name?",
+            "answer": "Fluffy"
+          }
+        ]
+      },
+      "cobrandCardInfo": {
+        "coBrandPrimaryAccountNumber": "1234-5678-9012-3456",
+        "activeCardHolder": true,
+        "priorCardCloseDate": "2022-12-31"
+      }
+    },
+    "personalInformation": {
+      "firstName": "John",
+      "middleName": "A.",
+      "lastName": "Doe",
+      "birthdate": "1985-06-15",
+      "gender": {
+        "genderId": "G001",
+        "genderType": "MALE"
+      },
+      "title": "Mr.",
+      "nationality": "American",
+      "citizenship": "USA",
+      "language": "English"
+    },
+    "contactInformation": {
+      "email": "john.doe@example.com",
+      "phoneNumber": "+123456789",
+      "mobileNumber": "+987654321",
+      "address": {
+        "addressLine1": "123 Main St",
+        "addressLine2": "Apt 4B",
+        "city": "New York",
+        "state": "NY",
+        "country": "USA",
+        "postalCode": "10001"
+      }
+    },
+    "emergencyContact": {
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "phoneNumber": "+1122334455",
+      "countryCode": "USA",
+      "relationship": "Spouse"
+    },
+    "loyaltyInformation": {
+      "loyaltyNumber": "L123456",
+      "loyaltyTierCode": "Gold",
+      "loyaltyTierDescription": "VIP Member",
+      "loyaltyLongCode": "GOLD-2024"
+    },
+    "casinoLoyaltyInformation": {
+      "casinoLoyaltyNumber": "C789012",
+      "casinoLoyaltyTier": "Platinum"
+    },
+    "cruisingHistory": {
+      "firstCelebrityCruise": false,
+      "firstCruiseEver": true,
+      "firstRoyalCruise": true,
+      "previousCruiser": true
+    },
+    "emailOptIns": [
+      {
+        "acceptDateTime": "2023-05-01T10:00:00Z",
+        "brand": "Royal Caribbean",
+        "category": "Promotions",
+        "countryCode": "USA",
+        "flag": "true",
+        "reason": "User Opt-In"
+      },
+      {
+        "acceptDateTime": "2023-06-15T14:30:00Z",
+        "brand": "Celebrity Cruises",
+        "category": "Newsletters",
+        "countryCode": "USA",
+        "flag": "true",
+        "reason": "User Opt-In"
+      }
+    ],
+    "termsAndConditionsAgreement": {
+      "acceptDateTime": "2023-01-01T12:00:00Z",
+      "version": "1.0"
+    },
+    "ratings": {
+      "lastRatedOn": "2023-07-10T15:45:00Z",
+      "displayRateMyApp": true
+    },
+    "postalOptIns": [
+      {
+        "acceptDateTime": "2023-02-15T09:30:00Z",
+        "flag": "true",
+        "reason": "User Opt-In"
+      }
+    ],
+    "notificationOptIns": [
+      {
+        "royal": "true",
+        "celebrity": "false"
+      }
+    ],
+    "travelDocument": {
+      "passportNumber": "P987654321",
+      "passportExpirationDate": "2030-12-31",
+      "citizenshipCountryCode": "USA"
+    }
+  }
+}
